@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfprojecte2evb"
+		},
+		"ADLSG2_SFTP_DATA_accountKey": {
+			"value": ""
+		},
+		"LS_OUTPUT_SFTP_accountKey": {
+			"value": ""
+		},
+		"LS_SQL_SERVER_INPUT_password": {
+			"value": ""
+		},
+		"SQL_OUTPUT_PARQUET_accountKey": {
+			"value": ""
+		},
+		"ADLSG2_SFTP_DATA_properties_typeProperties_url": {
+			"value": "https://adfe2eproject.dfs.core.windows.net/"
+		},
+		"LS_OUTPUT_SFTP_properties_typeProperties_url": {
+			"value": "https://accountforoutput01.dfs.core.windows.net/"
+		},
+		"LS_SQL_SERVER_INPUT_properties_typeProperties_server": {
+			"value": "localhost"
+		},
+		"LS_SQL_SERVER_INPUT_properties_typeProperties_database": {
+			"value": "vbadfproject"
+		},
+		"LS_SQL_SERVER_INPUT_properties_typeProperties_userName": {
+			"value": "ismahil_4338"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"value": "https://retoolapi.dev/iXyaxb/data"
+		},
+		"SQL_OUTPUT_PARQUET_properties_typeProperties_url": {
+			"value": "https://accountforoutput01.dfs.core.windows.net/"
+		}
+	}
+}
