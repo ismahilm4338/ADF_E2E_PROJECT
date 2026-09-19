@@ -1,0 +1,23 @@
+{
+	"name": "SnowFLake_parquet_BLOB",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_BLOB_SnowFLake",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": {
+					"value": "@concat(\n    'sftp/',\n    formatDateTime(utcNow(), 'yyyy'), '/',\n    formatDateTime(utcNow(), 'mm'), '/',\n    formatDateTime(utcNow(), 'dd')\n)",
+					"type": "Expression"
+				},
+				"container": "sourceinputefiles"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
