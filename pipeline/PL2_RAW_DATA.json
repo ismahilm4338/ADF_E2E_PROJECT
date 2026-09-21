@@ -129,10 +129,6 @@
 									},
 									"userProperties": [],
 									"typeProperties": {
-										"pipeline": {
-											"referenceName": "PL_JSON",
-											"type": "PipelineReference"
-										},
 										"waitOnCompletion": true
 									}
 								}
@@ -171,10 +167,6 @@
 									},
 									"userProperties": [],
 									"typeProperties": {
-										"pipeline": {
-											"referenceName": "PL_BULK",
-											"type": "PipelineReference"
-										},
 										"waitOnCompletion": true
 									}
 								}
