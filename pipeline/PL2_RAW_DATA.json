@@ -1,0 +1,88 @@
+{
+	"name": "PL2_RAW_DATA",
+	"properties": {
+		"activities": [
+			{
+				"name": "LK_UP_L2_TYPE",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": {
+							"value": "SELECT DISTINCT L2_switch_type \nFROM dbo.vb_tbl_job a\nJOIN dbo.vb_tbl_trigger b ON a.trigger_id = b.trigger_id\nWHERE b.trigger_name = '@{pipeline().parameters.Trigger}",
+							"type": "Expression"
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "DS_AZSQL_DB",
+						"type": "DatasetReference"
+					}
+				}
+			},
+			{
+				"name": "Switch_source",
+				"type": "Switch",
+				"dependsOn": [
+					{
+						"activity": "LK_UP_L2_TYPE",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"on": {
+						"value": "@activity('LK_UP_L2_TYPE').output.firstRow.L2_switch_type",
+						"type": "Expression"
+					},
+					"cases": [
+						{
+							"value": "CloudStorage"
+						},
+						{
+							"value": "API"
+						},
+						{
+							"value": "SFTP"
+						},
+						{
+							"value": "JSON"
+						},
+						{
+							"value": "SQL"
+						},
+						{
+							"value": "BULK"
+						},
+						{
+							"value": "SNOW_FLAKE"
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"Trigger": {
+				"type": "string"
+			}
+		},
+		"variables": {
+			"Mapping": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
