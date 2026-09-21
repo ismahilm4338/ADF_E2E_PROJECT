@@ -52,15 +52,12 @@
 							"value": "AZURE",
 							"activities": [
 								{
-									"name": "Excel_file_CSV",
-									"type": "ExecutePipeline",
+									"name": "Wait3",
+									"type": "Wait",
 									"dependsOn": [],
-									"policy": {
-										"secureInput": false
-									},
 									"userProperties": [],
 									"typeProperties": {
-										"waitOnCompletion": true
+										"waitTimeInSeconds": 1
 									}
 								}
 							]
