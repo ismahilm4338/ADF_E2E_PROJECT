@@ -1,9 +1,9 @@
 {
-	"name": "PL2_RAW_DATA",
+	"name": "PL3_CLOUD_CSV_EXCEL",
 	"properties": {
 		"activities": [
 			{
-				"name": "LK_UP_L2_TYPE",
+				"name": "LKUP_SRC_FILES",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -18,24 +18,24 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "SELECT DISTINCT L2_switch_type \nFROM dbo.vb_tbl_job a\nJOIN dbo.vb_tbl_trigger b ON a.trigger_id = b.trigger_id\nWHERE b.trigger_name = '@{pipeline().parameters.Trigger}",
+							"value": "SELECT DISTINCT L3_switch_type \nFROM dbo.vb_tbl_job a\nJOIN dbo.vb_tbl_trigger b ON a.trigger_id = b.trigger_id\nWHERE b.trigger_name = '@{pipeline().parameters.Trigger}'",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "DS_AZSQL_DB",
+						"referenceName": "DS_SRC_DB_PL3",
 						"type": "DatasetReference"
 					}
 				}
 			},
 			{
-				"name": "Switch_source",
+				"name": "Switch_SRC_CSV_EXCL",
 				"type": "Switch",
 				"dependsOn": [
 					{
-						"activity": "LK_UP_L2_TYPE",
+						"activity": "LKUP_SRC_FILES",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -44,15 +44,15 @@
 				"userProperties": [],
 				"typeProperties": {
 					"on": {
-						"value": "@activity('LK_UP_L2_TYPE').output.firstRow.L2_switch_type",
+						"value": "@activity('LKUP_SRC_FILES').output.firstRow.L3_switch_type",
 						"type": "Expression"
 					},
 					"cases": [
 						{
-							"value": "CloudStorage",
+							"value": "AZURE",
 							"activities": [
 								{
-									"name": "EXEC_PL3_CLOUD",
+									"name": "Excel_file_CSV",
 									"type": "ExecutePipeline",
 									"dependsOn": [],
 									"policy": {
@@ -60,38 +60,16 @@
 									},
 									"userProperties": [],
 									"typeProperties": {
-										"pipeline": {
-											"referenceName": "PL3_CLOUD_CSV_EXCEL",
-											"type": "PipelineReference"
-										},
-										"waitOnCompletion": true,
-										"parameters": {
-											"Trigger": {
-												"value": "@pipeline().parameters.Trigger",
-												"type": "Expression"
-											}
-										}
+										"waitOnCompletion": true
 									}
 								}
 							]
 						},
 						{
-							"value": "API"
+							"value": "AWS"
 						},
 						{
-							"value": "SFTP"
-						},
-						{
-							"value": "JSON"
-						},
-						{
-							"value": "SQL"
-						},
-						{
-							"value": "BULK"
-						},
-						{
-							"value": "SNOW_FLAKE"
+							"value": "GCP"
 						}
 					]
 				}
