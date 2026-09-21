@@ -121,15 +121,12 @@
 							"value": "JSON",
 							"activities": [
 								{
-									"name": "EXCE_PL_JSON",
-									"type": "ExecutePipeline",
+									"name": "Wait1",
+									"type": "Wait",
 									"dependsOn": [],
-									"policy": {
-										"secureInput": false
-									},
 									"userProperties": [],
 									"typeProperties": {
-										"waitOnCompletion": true
+										"waitTimeInSeconds": 1
 									}
 								}
 							]
@@ -138,19 +135,12 @@
 							"value": "SQL",
 							"activities": [
 								{
-									"name": "EXCE_PL_SQL",
-									"type": "ExecutePipeline",
+									"name": "Wait3",
+									"type": "Wait",
 									"dependsOn": [],
-									"policy": {
-										"secureInput": false
-									},
 									"userProperties": [],
 									"typeProperties": {
-										"pipeline": {
-											"referenceName": "PL_data_SQL",
-											"type": "PipelineReference"
-										},
-										"waitOnCompletion": true
+										"waitTimeInSeconds": 1
 									}
 								}
 							]
@@ -159,15 +149,12 @@
 							"value": "BULK",
 							"activities": [
 								{
-									"name": "EXCE_PL_BULK",
-									"type": "ExecutePipeline",
+									"name": "Wait2",
+									"type": "Wait",
 									"dependsOn": [],
-									"policy": {
-										"secureInput": false
-									},
 									"userProperties": [],
 									"typeProperties": {
-										"waitOnCompletion": true
+										"waitTimeInSeconds": 1
 									}
 								}
 							]
