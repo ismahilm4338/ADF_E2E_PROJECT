@@ -52,21 +52,12 @@
 							"value": "CSV",
 							"activities": [
 								{
-									"name": "PL4_EXEC_PIPELINE",
-									"type": "ExecutePipeline",
+									"name": "Wait2",
+									"type": "Wait",
 									"dependsOn": [],
-									"policy": {
-										"secureInput": false
-									},
 									"userProperties": [],
 									"typeProperties": {
-										"waitOnCompletion": true,
-										"parameters": {
-											"Trigger": {
-												"value": "@pipeline().parameters.Trigger",
-												"type": "Expression"
-											}
-										}
+										"waitTimeInSeconds": 1
 									}
 								}
 							]
