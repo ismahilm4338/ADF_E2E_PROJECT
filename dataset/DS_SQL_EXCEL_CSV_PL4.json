@@ -1,0 +1,12 @@
+{
+	"name": "DS_SQL_EXCEL_CSV_PL4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_CSV_EXCEL_AzureSqlDatabase_PL4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}
