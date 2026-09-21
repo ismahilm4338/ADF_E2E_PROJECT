@@ -76,7 +76,18 @@
 							]
 						},
 						{
-							"value": "EXCEL"
+							"value": "EXCEL",
+							"activities": [
+								{
+									"name": "Wait1",
+									"type": "Wait",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"waitTimeInSeconds": 1
+									}
+								}
+							]
 						}
 					]
 				}
