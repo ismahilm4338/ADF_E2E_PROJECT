@@ -2,11 +2,13 @@
 	"name": "LS_OUTPUT_CSV_TO_PRQT",
 	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
-		"annotations": [],
+		"annotations": [
+			"storage_account_loc"
+		],
 		"type": "AzureBlobFS",
 		"typeProperties": {
 			"url": "https://accountforoutput01.dfs.core.windows.net/",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDdFRDMzMjA5LTJDMjEtNDc2NS05RjYxLURBNzU0MzVDODUxMF81ZTE1YzVjNS1hNjllLTRjM2YtYWI3NS1iMjgzZmYwMTJmZDEiDQp9"
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDdFRDMzMjA5LTJDMjEtNDc2NS05RjYxLURBNzU0MzVDODUxMF9kZmRkMTZhNS1hMzA2LTRlOTQtODI4My04NTIwODgyNTdkYmEiDQp9"
 		}
 	}
 }
