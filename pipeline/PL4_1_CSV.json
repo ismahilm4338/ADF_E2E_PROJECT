@@ -1,6 +1,11 @@
 {
 	"name": "PL4_1_CSV",
 	"properties": {
+		"parameters": {
+			"Trigger": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
