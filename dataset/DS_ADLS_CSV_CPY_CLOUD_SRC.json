@@ -5,6 +5,17 @@
 			"referenceName": "LS_CPY_CSV_SRC_CLOUD",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"Storage_account_loc": {
+				"type": "string"
+			},
+			"col_delimeter": {
+				"type": "string"
+			},
+			"filename": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
