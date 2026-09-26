@@ -1,5 +1,5 @@
 {
-	"name": "SnowFLake_parquet_BLOB",
+	"name": "LS_OUTPUT_SNOWFLAKE_TO_PRQT_BLOB",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_BLOB_SnowFLake",

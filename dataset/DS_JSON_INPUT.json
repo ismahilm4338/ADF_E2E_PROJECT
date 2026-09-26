@@ -1,5 +1,5 @@
 {
-	"name": "DS_JSON_G2",
+	"name": "DS_JSON_INPUT",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_JSON_AzureDataLakeStorage",

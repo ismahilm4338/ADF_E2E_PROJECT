@@ -1,5 +1,5 @@
 {
-	"name": "SFTP_CSV_INPUT",
+	"name": "DS_SFTP_CSV_INPUT",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ADLSG2_SFTP_DATA",

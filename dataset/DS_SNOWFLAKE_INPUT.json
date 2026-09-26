@@ -1,5 +1,5 @@
 {
-	"name": "SRC_SnowFlake",
+	"name": "DS_SNOWFLAKE_INPUT",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_Snowflake1",

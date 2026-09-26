@@ -42,13 +42,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SRC_SnowFlake",
+						"referenceName": "DS_SNOWFLAKE_INPUT",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "SnowFLake_parquet_BLOB",
+						"referenceName": "LS_OUTPUT_SNOWFLAKE_TO_PRQT_BLOB",
 						"type": "DatasetReference"
 					}
 				]

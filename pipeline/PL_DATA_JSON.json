@@ -39,7 +39,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DS_JSON_G2",
+						"referenceName": "DS_JSON_INPUT",
 						"type": "DatasetReference"
 					}
 				],

@@ -1,5 +1,5 @@
 {
-	"name": "Sink_SFTP_PARQUET",
+	"name": "LS_OUTPUT_SFTP_TO_PRQT",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_OUTPUT_SFTP",

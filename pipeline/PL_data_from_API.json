@@ -37,7 +37,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "RestAPIResource1",
+						"referenceName": "DS_REST_API_INPUT",
 						"type": "DatasetReference"
 					}
 				],

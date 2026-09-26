@@ -47,13 +47,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SFTP_CSV_INPUT",
+						"referenceName": "DS_SFTP_CSV_INPUT",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Sink_SFTP_PARQUET",
+						"referenceName": "LS_OUTPUT_SFTP_TO_PRQT",
 						"type": "DatasetReference"
 					}
 				]

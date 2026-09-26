@@ -1,5 +1,5 @@
 {
-	"name": "RestAPIResource1",
+	"name": "DS_REST_API_INPUT",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "RestService1",

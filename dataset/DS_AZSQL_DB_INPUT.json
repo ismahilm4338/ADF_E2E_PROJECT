@@ -1,5 +1,5 @@
 {
-	"name": "DS_AZSQL_DB",
+	"name": "DS_AZSQL_DB_INPUT",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_AzureSqlDatabase",
