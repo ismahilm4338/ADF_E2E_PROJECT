@@ -138,7 +138,21 @@
 				"inputs": [
 					{
 						"referenceName": "DS_ADLS_CSV_CPY_CLOUD_SRC",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"Storage_account_loc": {
+								"value": "@activity('LKUP_JOB_DETAILS').output.firstRow.sourcedata",
+								"type": "Expression"
+							},
+							"col_delimeter": {
+								"value": "@activity('LKUP_JOB_DETAILS').output.firstRow.delimiter\r\n",
+								"type": "Expression"
+							},
+							"filename": {
+								"value": "@activity('LKUP_JOB_DETAILS').output.firstRow.sourcefile\n",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
