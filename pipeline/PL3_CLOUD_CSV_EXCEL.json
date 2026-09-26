@@ -52,12 +52,19 @@
 							"value": "AZURE",
 							"activities": [
 								{
-									"name": "Wait3",
-									"type": "Wait",
+									"name": "EXEC_CSV_FILE",
+									"type": "ExecutePipeline",
 									"dependsOn": [],
+									"policy": {
+										"secureInput": false
+									},
 									"userProperties": [],
 									"typeProperties": {
-										"waitTimeInSeconds": 1
+										"pipeline": {
+											"referenceName": "PL4_FILETYPE_CSV_EXCEL",
+											"type": "PipelineReference"
+										},
+										"waitOnCompletion": true
 									}
 								}
 							]
