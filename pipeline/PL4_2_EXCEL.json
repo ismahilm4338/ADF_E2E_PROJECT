@@ -1,6 +1,11 @@
 {
 	"name": "PL4_2_EXCEL",
 	"properties": {
+		"parameters": {
+			"Trigger": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
