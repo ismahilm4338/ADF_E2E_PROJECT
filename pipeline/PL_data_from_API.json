@@ -25,12 +25,13 @@
 						}
 					},
 					"sink": {
-						"type": "RestSink",
-						"httpRequestTimeout": "00:05:00",
-						"requestInterval": 10,
-						"requestMethod": "POST",
-						"writeBatchSize": 10000,
-						"httpCompressionType": "none"
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
+						}
 					},
 					"enableStaging": false
 				},
@@ -42,7 +43,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "RestAPIResource1",
+						"referenceName": "LS_OUTPUT_REST_API_TO_PRQT",
 						"type": "DatasetReference"
 					}
 				]
