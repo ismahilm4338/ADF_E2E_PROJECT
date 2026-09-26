@@ -1,0 +1,12 @@
+{
+	"name": "LS_CPY_CSV_SRC_CLOUD",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://adfe2eproject.dfs.core.windows.net/",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDdFRDMzMjA5LTJDMjEtNDc2NS05RjYxLURBNzU0MzVDODUxMF85NDkzYzAzZC1kOTExLTRkNjUtODZiMy0yNWZmNjdlYTg1MDEiDQp9"
+		}
+	}
+}
