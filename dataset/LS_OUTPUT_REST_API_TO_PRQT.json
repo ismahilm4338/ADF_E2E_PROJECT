@@ -13,7 +13,8 @@
 				"folderPath": {
 					"value": "@concat(\n    'REST/',\n    formatDateTime(utcNow(), 'yyyy'), '/',\n    formatDateTime(utcNow(), 'MM'), '/',\n    formatDateTime(utcNow(), 'dd')\n)\n",
 					"type": "Expression"
-				}
+				},
+				"fileSystem": "sql-output"
 			},
 			"compressionCodec": "snappy"
 		},
