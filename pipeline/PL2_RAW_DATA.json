@@ -88,7 +88,7 @@
 									"userProperties": [],
 									"typeProperties": {
 										"pipeline": {
-											"referenceName": "PL_data_from_API",
+											"referenceName": "PL_DATA_FROM_API",
 											"type": "PipelineReference"
 										},
 										"waitOnCompletion": true
@@ -109,7 +109,7 @@
 									"userProperties": [],
 									"typeProperties": {
 										"pipeline": {
-											"referenceName": "PL_data_from_SFTP",
+											"referenceName": "PL_DATA_FROM_SFTP",
 											"type": "PipelineReference"
 										},
 										"waitOnCompletion": true
@@ -172,7 +172,7 @@
 									"userProperties": [],
 									"typeProperties": {
 										"pipeline": {
-											"referenceName": "PL_SnowFlake",
+											"referenceName": "PL_SNOWFLAKE",
 											"type": "PipelineReference"
 										},
 										"waitOnCompletion": true
