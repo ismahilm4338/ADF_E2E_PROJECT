@@ -140,10 +140,6 @@
 						"referenceName": "DS_ADLS_CSV_CPY_CLOUD_SRC",
 						"type": "DatasetReference",
 						"parameters": {
-							"Storage_account_loc": {
-								"value": "@activity('LKUP_JOB_DETAILS').output.firstRow.sourcedata",
-								"type": "Expression"
-							},
 							"col_delimeter": {
 								"value": "@activity('LKUP_JOB_DETAILS').output.firstRow.delimiter\r\n",
 								"type": "Expression"
@@ -157,8 +153,14 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "LS_OUTPUT_CSV_TO_PRQT_SYNC",
-						"type": "DatasetReference"
+						"referenceName": "SINK_CSV_COPY_OUTPUT_PRQT",
+						"type": "DatasetReference",
+						"parameters": {
+							"storage_account_loc": {
+								"value": "@dataset().storage_account_loc",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			},
