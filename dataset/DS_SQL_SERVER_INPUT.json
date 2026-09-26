@@ -1,5 +1,5 @@
 {
-	"name": "SQLServerInput",
+	"name": "DS_SQL_SERVER_INPUT",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_SQL_SERVER_INPUT",

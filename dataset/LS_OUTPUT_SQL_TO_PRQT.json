@@ -1,5 +1,5 @@
 {
-	"name": "SINK_LS_SQL_DATA",
+	"name": "LS_OUTPUT_SQL_TO_PRQT",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "SQL_OUTPUT_PARQUET",

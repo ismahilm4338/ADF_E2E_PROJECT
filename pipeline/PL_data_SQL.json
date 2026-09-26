@@ -41,13 +41,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SQLServerInput",
+						"referenceName": "DS_SQL_SERVER_INPUT",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "SINK_LS_SQL_DATA",
+						"referenceName": "LS_OUTPUT_SQL_TO_PRQT",
 						"type": "DatasetReference"
 					}
 				]
