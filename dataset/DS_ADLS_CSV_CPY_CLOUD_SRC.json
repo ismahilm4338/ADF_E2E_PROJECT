@@ -2,17 +2,23 @@
 	"name": "DS_ADLS_CSV_CPY_CLOUD_SRC",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "LS_CPY_CSV_SRC_CLOUD",
-			"type": "LinkedServiceReference"
+			"referenceName": "LS_ADLS_G2_CSV_CLOUD_RAW",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"storage_account_loc": {
+					"value": "@dataset().storage_account_loc",
+					"type": "Expression"
+				}
+			}
 		},
 		"parameters": {
-			"Storage_account_loc": {
-				"type": "string"
-			},
 			"col_delimeter": {
 				"type": "string"
 			},
 			"filename": {
+				"type": "string"
+			},
+			"storage_account_loc": {
 				"type": "string"
 			}
 		},
