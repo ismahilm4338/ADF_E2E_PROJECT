@@ -56,7 +56,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"storedProcedureName": "[dbo].[vb_end_log_entry]",
+					"storedProcedureName": "[dbo].[vb_start_log_entry]",
 					"storedProcedureParameters": {
 						"jobid": {
 							"value": {
