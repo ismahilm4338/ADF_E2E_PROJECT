@@ -6,7 +6,7 @@
 		],
 		"type": "AzureBlobFS",
 		"typeProperties": {
-			"url": "https://adfe2eproject.dfs.core.windows.net/"
+			"url": "@{linkedService().storage_account_loc}"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/linkedservices"
