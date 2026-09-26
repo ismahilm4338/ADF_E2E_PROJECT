@@ -1,0 +1,20 @@
+{
+	"name": "LS_OUTPUT_CSV_TO_PRQT_SYNC",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_OUTPUT_CSV_TO_PRQT",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "CSV",
+				"fileSystem": "sql-output"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
