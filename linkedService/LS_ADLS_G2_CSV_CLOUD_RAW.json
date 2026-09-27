@@ -3,7 +3,8 @@
 	"properties": {
 		"parameters": {
 			"storage_account_loc": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "adfe2eproject"
 			}
 		},
 		"annotations": [],
