@@ -60,7 +60,7 @@
 					"storedProcedureParameters": {
 						"jobid": {
 							"value": {
-								"value": "@activity('LKUP_JOB_DETAILS').output.firstRow",
+								"value": "@activity('LKUP_JOB_DETAILS').output.firstRow.jobid",
 								"type": "Expression"
 							},
 							"type": "Int32"
@@ -147,10 +147,6 @@
 							"filename": {
 								"value": "@activity('LKUP_JOB_DETAILS').output.firstRow.sourcefile\n",
 								"type": "Expression"
-							},
-							"storage_account_loc": {
-								"value": "@activity('LKUP_JOB_DETAILS').output.firstRow.sourcedata\n",
-								"type": "Expression"
 							}
 						}
 					}
@@ -184,6 +180,46 @@
 						"type": "Expression"
 					}
 				}
+			},
+			{
+				"name": "SP_SUCCESS_LOG_ENTRY",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "CPY_CSV",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": []
+			},
+			{
+				"name": "SP_FAIL_LOG_ENTRY",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "CPY_CSV",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": []
 			}
 		],
 		"parameters": {
