@@ -29,55 +29,6 @@
 						"type": "DatasetReference"
 					}
 				}
-			},
-			{
-				"name": "Switch1",
-				"type": "Switch",
-				"dependsOn": [
-					{
-						"activity": "LKUP_GET_FILETYPE_CSV_EXCEL",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"on": {
-						"value": "@activity('LKUP_GET_FILETYPE_CSV_EXCEL').output.firstRow.L4_switch_type\n",
-						"type": "Expression"
-					},
-					"cases": [
-						{
-							"value": "CSV",
-							"activities": [
-								{
-									"name": "Wait2",
-									"type": "Wait",
-									"dependsOn": [],
-									"userProperties": [],
-									"typeProperties": {
-										"waitTimeInSeconds": 1
-									}
-								}
-							]
-						},
-						{
-							"value": "EXCEL",
-							"activities": [
-								{
-									"name": "Wait1",
-									"type": "Wait",
-									"dependsOn": [],
-									"userProperties": [],
-									"typeProperties": {
-										"waitTimeInSeconds": 1
-									}
-								}
-							]
-						}
-					]
-				}
 			}
 		],
 		"parameters": {
