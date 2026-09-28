@@ -12,7 +12,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "Mapping",
+					"variableName": "Trigger_variable",
 					"value": {
 						"value": "@if(equals(pipeline().parameters.Trigger, null),pipeline().TriggerName,pipeline().parameters.Trigger)",
 						"type": "Expression"
@@ -56,6 +56,9 @@
 		},
 		"variables": {
 			"Mapping": {
+				"type": "String"
+			},
+			"Trigger_variable": {
 				"type": "String"
 			}
 		},

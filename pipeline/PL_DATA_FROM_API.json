@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "CPY_Product_category_E2E",
+				"name": "CPY_REST_API",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
