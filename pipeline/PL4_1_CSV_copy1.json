@@ -142,7 +142,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"col_delimeter": {
-								"value": "@activity('LKUP_JOB_DETAILS').output.firstRow.delimiter\r\n",
+								"value": "@activity('LKUP_JOB_DETAILS').output.firstRow.delimter\n",
 								"type": "Expression"
 							},
 							"filename": {
