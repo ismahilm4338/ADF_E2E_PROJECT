@@ -147,6 +147,10 @@
 							"filename": {
 								"value": "@activity('LKUP_JOB_DETAILS').output.firstRow.sourcefile\n",
 								"type": "Expression"
+							},
+							"storage_account_loc": {
+								"value": "@activity('LKUP_JOB_DETAILS').output.firstRow.sourcedata",
+								"type": "Expression"
 							}
 						}
 					}
