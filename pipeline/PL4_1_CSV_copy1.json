@@ -75,7 +75,7 @@
 					}
 				},
 				"linkedServiceName": {
-					"referenceName": "LS_AZURE_SQL_METADATA",
+					"referenceName": "LS_CSV_PL4_1_AZURE_SQL_DB",
 					"type": "LinkedServiceReference"
 				}
 			},
