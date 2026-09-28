@@ -136,7 +136,7 @@
 								"type": "Expression"
 							},
 							"sheetname": {
-								"value": "@activity('LKUP_JOB_DETAILS').output.firstRow.sheetname",
+								"value": "@activity('LKUP_JOB_DETAILS').output.firstRow.Worksheet",
 								"type": "Expression"
 							},
 							"filename": {
