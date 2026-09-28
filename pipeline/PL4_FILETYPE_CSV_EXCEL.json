@@ -60,10 +60,6 @@
 									},
 									"userProperties": [],
 									"typeProperties": {
-										"pipeline": {
-											"referenceName": "PL4_1_CSV",
-											"type": "PipelineReference"
-										},
 										"waitOnCompletion": true
 									}
 								}
