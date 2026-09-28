@@ -159,13 +159,7 @@
 				"outputs": [
 					{
 						"referenceName": "SINK_CSV_COPY_OUTPUT_PRQT",
-						"type": "DatasetReference",
-						"parameters": {
-							"storage_account_loc": {
-								"value": "@dataset().storage_account_loc",
-								"type": "Expression"
-							}
-						}
+						"type": "DatasetReference"
 					}
 				]
 			},
