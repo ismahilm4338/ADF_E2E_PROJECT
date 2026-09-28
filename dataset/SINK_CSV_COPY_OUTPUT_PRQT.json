@@ -2,25 +2,16 @@
 	"name": "SINK_CSV_COPY_OUTPUT_PRQT",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "LS_ADLS_CSV_CLOUD_RAW",
-			"type": "LinkedServiceReference",
-			"parameters": {
-				"storage_account_loc": {
-					"value": "@dataset().Storage_account_loc",
-					"type": "Expression"
-				}
-			}
-		},
-		"parameters": {
-			"storage_account_loc": {
-				"type": "string"
-			}
+			"referenceName": "LS_ADLS_CSV_CLOUD_RAW_01",
+			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobFSLocation"
+				"type": "AzureBlobFSLocation",
+				"folderPath": "CSV",
+				"fileSystem": "sql-output"
 			},
 			"compressionCodec": "snappy"
 		},
