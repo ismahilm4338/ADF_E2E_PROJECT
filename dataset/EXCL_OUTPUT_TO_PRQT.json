@@ -1,0 +1,20 @@
+{
+	"name": "EXCL_OUTPUT_TO_PRQT",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_OUTPUT_EXCL_TO_PRQT",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "EXCEL",
+				"fileSystem": "sql-output"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
