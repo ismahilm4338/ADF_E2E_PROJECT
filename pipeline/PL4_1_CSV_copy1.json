@@ -34,7 +34,7 @@
 						"referenceName": "DS_AZURE_SQL_METADATA",
 						"type": "DatasetReference"
 					},
-					"firstRowOnly": false
+					"firstRowOnly": true
 				}
 			},
 			{
