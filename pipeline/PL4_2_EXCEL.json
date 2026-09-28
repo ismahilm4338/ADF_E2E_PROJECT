@@ -201,7 +201,7 @@
 				}
 			},
 			{
-				"name": "Stored procedure1_copy1",
+				"name": "SP_FAIL_LOG_ENTRY",
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
@@ -218,7 +218,34 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[vb_end_log_entry]",
+					"storedProcedureParameters": {
+						"jobid": {
+							"value": {
+								"value": "@activity('LKUP_JOB_DETAILS').output.firstRow.jobid",
+								"type": "Expression"
+							},
+							"type": "Int32"
+						},
+						"pipeline_id": {
+							"value": {
+								"value": "@pipeline().RunId",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"error": {
+							"value": null,
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_CSV_PL4_1_AZURE_SQL_DB",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"parameters": {
