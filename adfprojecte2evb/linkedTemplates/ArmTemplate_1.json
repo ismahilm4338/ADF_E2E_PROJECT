@@ -7,17 +7,9 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adfprojecte2evb"
 		},
-		"LS_OUTPUT_EXCL_TO_PRQT_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'LS_OUTPUT_EXCL_TO_PRQT'"
-		},
 		"LS_SQL_SERVER_INPUT_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_SQL_SERVER_INPUT'"
-		},
-		"LS_OUTPUT_EXCL_TO_PRQT_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://accountforoutput01.dfs.core.windows.net/"
 		},
 		"LS_SQL_SERVER_INPUT_properties_typeProperties_server": {
 			"type": "string",
@@ -37,19 +29,12 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/LS_OUTPUT_EXCL_TO_PRQT')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"name": "[concat(parameters('factoryName'), '/integrationRuntime1')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"annotations": [],
-				"type": "AzureBlobFS",
-				"typeProperties": {
-					"url": "[parameters('LS_OUTPUT_EXCL_TO_PRQT_properties_typeProperties_url')]",
-					"accountKey": {
-						"type": "SecureString",
-						"value": "[parameters('LS_OUTPUT_EXCL_TO_PRQT_accountKey')]"
-					}
-				}
+				"type": "SelfHosted",
+				"typeProperties": {}
 			},
 			"dependsOn": []
 		},
@@ -116,6 +101,71 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/DS_ADLS_EXCL_INPUT')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_ADLS_CPY_EXCL_INPUT",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"storage_account_loc": {
+						"type": "string"
+					},
+					"sheetname": {
+						"type": "string"
+					},
+					"filename": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "Excel",
+				"typeProperties": {
+					"sheetName": "Worksheet",
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "olist_order_reviews_dataset.xlsx",
+						"folderPath": "EXCEL",
+						"fileSystem": "input"
+					},
+					"firstRowAsHeader": true
+				},
+				"schema": [
+					{
+						"name": "review_id",
+						"type": "String"
+					},
+					{
+						"name": "order_id",
+						"type": "String"
+					},
+					{
+						"name": "review_score",
+						"type": "String"
+					},
+					{
+						"name": "review_comment_title",
+						"type": "String"
+					},
+					{
+						"name": "review_comment_message",
+						"type": "String"
+					},
+					{
+						"name": "review_creation_date",
+						"type": "String"
+					},
+					{
+						"name": "review_answer_timestamp",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/DS_AZSQL_DB_INPUT')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -145,7 +195,7 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "vb_tbl_job_dtls"
+					"table": "vb_tbl_trigger"
 				}
 			},
 			"dependsOn": []
@@ -367,7 +417,33 @@
 				"annotations": [],
 				"type": "AzureSqlTable",
 				"schema": [],
-				"typeProperties": {}
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "vb_tbl_trigger"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/EXCL_OUTPUT_TO_PRQT')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_OUTPUT_EXCL_TO_PRQT",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "EXCEL",
+						"fileSystem": "sql-output"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
 			},
 			"dependsOn": []
 		},
@@ -647,100 +723,12 @@
 					"type": "IntegrationRuntimeReference"
 				}
 			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DS_ADLS_EXCL_INPUT')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "LS_ADLS_CPY_EXCL_INPUT",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"storage_account_loc": {
-						"type": "string"
-					},
-					"sheetname": {
-						"type": "string"
-					},
-					"filename": {
-						"type": "string"
-					}
-				},
-				"annotations": [],
-				"type": "Excel",
-				"typeProperties": {
-					"sheetName": "Worksheet",
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileName": "olist_order_reviews_dataset.xlsx",
-						"folderPath": "EXCEL",
-						"fileSystem": "input"
-					},
-					"firstRowAsHeader": true
-				},
-				"schema": [
-					{
-						"name": "review_id",
-						"type": "String"
-					},
-					{
-						"name": "order_id",
-						"type": "String"
-					},
-					{
-						"name": "review_score",
-						"type": "String"
-					},
-					{
-						"name": "review_comment_title",
-						"type": "String"
-					},
-					{
-						"name": "review_comment_message",
-						"type": "String"
-					},
-					{
-						"name": "review_creation_date",
-						"type": "String"
-					},
-					{
-						"name": "review_answer_timestamp",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/EXCL_OUTPUT_TO_PRQT')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "LS_OUTPUT_EXCL_TO_PRQT",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Parquet",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"folderPath": "EXCEL",
-						"fileSystem": "sql-output"
-					},
-					"compressionCodec": "snappy"
-				},
-				"schema": []
-			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/LS_OUTPUT_EXCL_TO_PRQT')]"
+				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/PL4_2_EXCEL')]",
+			"name": "[concat(parameters('factoryName'), '/PL4_1_CSV')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -777,7 +765,8 @@
 								"referenceName": "DS_AZURE_SQL_METADATA",
 								"type": "DatasetReference",
 								"parameters": {}
-							}
+							},
+							"firstRowOnly": true
 						}
 					},
 					{
@@ -824,11 +813,17 @@
 						}
 					},
 					{
-						"name": "CPY_EXCEL",
+						"name": "CPY_CSV",
 						"type": "Copy",
 						"dependsOn": [
 							{
 								"activity": "SP_START_LOG_ENTRY",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "SET_MAPPING_VARIABLE",
 								"dependencyConditions": [
 									"Succeeded"
 								]
@@ -844,11 +839,14 @@
 						"userProperties": [],
 						"typeProperties": {
 							"source": {
-								"type": "ExcelSource",
+								"type": "DelimitedTextSource",
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
 									"recursive": true,
 									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
 								}
 							},
 							"sink": {
@@ -872,19 +870,19 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "DS_ADLS_EXCL_INPUT",
+								"referenceName": "DS_ADLS_CSV_CPY_CLOUD_SRC",
 								"type": "DatasetReference",
 								"parameters": {
-									"storage_account_loc": {
-										"value": "@activity('LKUP_JOB_DETAILS').output.firstRow.sourcedata",
-										"type": "Expression"
-									},
-									"sheetname": {
-										"value": "@activity('LKUP_JOB_DETAILS').output.firstRow.sheetname",
+									"col_delimeter": {
+										"value": "@activity('LKUP_JOB_DETAILS').output.firstRow.delimter\n",
 										"type": "Expression"
 									},
 									"filename": {
-										"value": "@activity('LKUP_JOB_DETAILS').output.firstRow.sourcefile",
+										"value": "@activity('LKUP_JOB_DETAILS').output.firstRow.sourcefile\n",
+										"type": "Expression"
+									},
+									"storage_account_loc": {
+										"value": "@activity('LKUP_JOB_DETAILS').output.firstRow.sourcedata",
 										"type": "Expression"
 									}
 								}
@@ -892,18 +890,35 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "EXCL_OUTPUT_TO_PRQT",
+								"referenceName": "SINK_CSV_COPY_OUTPUT_PRQT",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						]
 					},
 					{
+						"name": "SET_MAPPING_VARIABLE",
+						"type": "SetVariable",
+						"dependsOn": [],
+						"policy": {
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"variableName": "Mapping",
+							"value": {
+								"value": "{\n    \"type\": \"TabularTranslator\",\n    \"mappings\": [\n        {\n            \"source\": {\n                \"name\": \"order_id\",\n                \"type\": \"String\",\n                \"physicalType\": \"String\"\n            },\n            \"sink\": {\n                \"name\": \"OrderID\",\n                \"type\": \"String\",\n                \"physicalType\": \"UTF8\"\n            }\n        },\n        {\n            \"source\": {\n                \"name\": \"customer_id\",\n                \"type\": \"String\",\n                \"physicalType\": \"String\"\n            },\n            \"sink\": {\n                \"name\": \"CustomerID\",\n                \"type\": \"String\",\n                \"physicalType\": \"UTF8\"\n            }\n        },\n        {\n            \"source\": {\n                \"name\": \"order_status\",\n                \"type\": \"String\",\n                \"physicalType\": \"String\"\n            },\n            \"sink\": {\n                \"name\": \"OrderStatus\",\n                \"type\": \"String\",\n                \"physicalType\": \"UTF8\"\n            }\n        },\n        {\n            \"source\": {\n                \"name\": \"order_purchase_timestamp\",\n                \"type\": \"String\",\n                \"physicalType\": \"String\"\n            },\n            \"sink\": {\n                \"name\": \"OrderPurchaseTimestamp\",\n                \"type\": \"String\",\n                \"physicalType\": \"UTF8\"\n            }\n        },\n        {\n            \"source\": {\n                \"name\": \"order_approved_at\",\n                \"type\": \"String\",\n                \"physicalType\": \"String\"\n            },\n            \"sink\": {\n                \"name\": \"OrderApprovedAt\",\n                \"type\": \"String\",\n                \"physicalType\": \"UTF8\"\n            }\n        },\n        {\n            \"source\": {\n                \"name\": \"order_delivered_carrier_date\",\n                \"type\": \"String\",\n                \"physicalType\": \"String\"\n            },\n            \"sink\": {\n                \"name\": \"OrderDeliveredCarrierDate\",\n                \"type\": \"String\",\n                \"physicalType\": \"UTF8\"\n            }\n        },\n        {\n            \"source\": {\n                \"name\": \"order_delivered_customer_date\",\n                \"type\": \"String\",\n                \"physicalType\": \"String\"\n            },\n            \"sink\": {\n                \"name\": \"OrderDeliveredCustomerDate\",\n                \"type\": \"String\",\n                \"physicalType\": \"UTF8\"\n            }\n        },\n        {\n            \"source\": {\n                \"name\": \"order_estimated_delivery_date\",\n                \"type\": \"String\",\n                \"physicalType\": \"String\"\n            },\n            \"sink\": {\n                \"name\": \"OrderEstimatedDeliveryDate\",\n                \"type\": \"String\",\n                \"physicalType\": \"UTF8\"\n            }\n        }\n    ],\n    \"typeConversion\": true,\n    \"typeConversionSettings\": {\n        \"allowDataTruncation\": true,\n        \"treatBooleanAsNumber\": false\n    }\n}\n",
+								"type": "Expression"
+							}
+						}
+					},
+					{
 						"name": "SP_SUCCESS_LOG_ENTRY",
 						"type": "SqlServerStoredProcedure",
 						"dependsOn": [
 							{
-								"activity": "CPY_EXCEL",
+								"activity": "CPY_CSV",
 								"dependencyConditions": [
 									"Succeeded"
 								]
@@ -920,6 +935,10 @@
 						"typeProperties": {
 							"storedProcedureName": "[[dbo].[vb_end_log_entry]",
 							"storedProcedureParameters": {
+								"error": {
+									"value": null,
+									"type": "String"
+								},
 								"jobid": {
 									"value": {
 										"value": "@activity('LKUP_JOB_DETAILS').output.firstRow.jobid",
@@ -932,10 +951,6 @@
 										"value": "@pipeline().RunId",
 										"type": "Expression"
 									},
-									"type": "String"
-								},
-								"error": {
-									"value": null,
 									"type": "String"
 								}
 							}
@@ -950,7 +965,7 @@
 						"type": "SqlServerStoredProcedure",
 						"dependsOn": [
 							{
-								"activity": "CPY_EXCEL",
+								"activity": "CPY_CSV",
 								"dependencyConditions": [
 									"Failed"
 								]
@@ -967,6 +982,13 @@
 						"typeProperties": {
 							"storedProcedureName": "[[dbo].[vb_end_log_entry]",
 							"storedProcedureParameters": {
+								"error": {
+									"value": {
+										"value": "@activity('CPY_CSV').error.message",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
 								"jobid": {
 									"value": {
 										"value": "@activity('LKUP_JOB_DETAILS').output.firstRow.jobid",
@@ -976,13 +998,9 @@
 								},
 								"pipeline_id": {
 									"value": {
-										"value": "@pipeline().RunId",
+										"value": "@pipeline().RunId\n",
 										"type": "Expression"
 									},
-									"type": "String"
-								},
-								"error": {
-									"value": null,
 									"type": "String"
 								}
 							}
@@ -1001,12 +1019,17 @@
 						"type": "string"
 					}
 				},
+				"variables": {
+					"Mapping": {
+						"type": "String"
+					}
+				},
 				"annotations": []
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/DS_AZURE_SQL_METADATA')]",
-				"[concat(variables('factoryId'), '/datasets/DS_ADLS_EXCL_INPUT')]",
-				"[concat(variables('factoryId'), '/datasets/EXCL_OUTPUT_TO_PRQT')]"
+				"[concat(variables('factoryId'), '/datasets/DS_ADLS_CSV_CPY_CLOUD_SRC')]",
+				"[concat(variables('factoryId'), '/datasets/SINK_CSV_COPY_OUTPUT_PRQT')]"
 			]
 		}
 	]

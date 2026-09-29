@@ -11,6 +11,18 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ADLSG2_SFTP_DATA'"
 		},
+		"LS_ADLS_CPY_EXCL_INPUT_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_CPY_EXCL_INPUT'"
+		},
+		"LS_ADLS_CSV_CLOUD_RAW_01_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_CSV_CLOUD_RAW_01'"
+		},
+		"LS_ADLS_G2_CSV_CLOUD_RAW_01_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_G2_CSV_CLOUD_RAW_01'"
+		},
 		"LS_AZURE_SQL_METADATA_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_AZURE_SQL_METADATA'"
@@ -27,6 +39,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_CSV_EXCEL_AzureSqlDatabase_PL4'"
 		},
+		"LS_CSV_PL4_1_AZURE_SQL_DB_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_CSV_PL4_1_AZURE_SQL_DB'"
+		},
 		"LS_JSON_AzureDataLakeStorage_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_JSON_AzureDataLakeStorage'"
@@ -34,6 +50,10 @@
 		"LS_OUTPUT_CSV_TO_PRQT_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_OUTPUT_CSV_TO_PRQT'"
+		},
+		"LS_OUTPUT_EXCL_TO_PRQT_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_OUTPUT_EXCL_TO_PRQT'"
 		},
 		"LS_OUTPUT_JSON_PRQT_accountKey": {
 			"type": "secureString",
@@ -59,27 +79,19 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'SQL_OUTPUT_PARQUET'"
 		},
-		"LS_ADLS_G2_CSV_CLOUD_RAW_01_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_G2_CSV_CLOUD_RAW_01'"
-		},
-		"LS_CSV_PL4_1_AZURE_SQL_DB_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'LS_CSV_PL4_1_AZURE_SQL_DB'"
-		},
-		"LS_ADLS_CSV_CLOUD_RAW_01_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_CSV_CLOUD_RAW_01'"
-		},
-		"LS_ADLS_CPY_EXCL_INPUT_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_CPY_EXCL_INPUT'"
-		},
-		"LS_OUTPUT_EXCL_TO_PRQT_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'LS_OUTPUT_EXCL_TO_PRQT'"
-		},
 		"ADLSG2_SFTP_DATA_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adfe2eproject.dfs.core.windows.net/"
+		},
+		"LS_ADLS_CPY_EXCL_INPUT_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adfe2eproject.dfs.core.windows.net/"
+		},
+		"LS_ADLS_CSV_CLOUD_RAW_01_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://accountforoutput01.dfs.core.windows.net/"
+		},
+		"LS_ADLS_G2_CSV_CLOUD_RAW_01_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adfe2eproject.dfs.core.windows.net/"
 		},
@@ -139,11 +151,27 @@
 			"type": "string",
 			"defaultValue": "sql_server_isma"
 		},
+		"LS_CSV_PL4_1_AZURE_SQL_DB_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sql-server-e2e-project.database.windows.net"
+		},
+		"LS_CSV_PL4_1_AZURE_SQL_DB_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "sql_server_DB_Isma"
+		},
+		"LS_CSV_PL4_1_AZURE_SQL_DB_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sql_server_isma"
+		},
 		"LS_JSON_AzureDataLakeStorage_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adfe2eproject.dfs.core.windows.net/"
 		},
 		"LS_OUTPUT_CSV_TO_PRQT_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://accountforoutput01.dfs.core.windows.net/"
+		},
+		"LS_OUTPUT_EXCL_TO_PRQT_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://accountforoutput01.dfs.core.windows.net/"
 		},
@@ -183,34 +211,6 @@
 			"type": "string",
 			"defaultValue": "https://accountforoutput01.dfs.core.windows.net/"
 		},
-		"LS_ADLS_G2_CSV_CLOUD_RAW_01_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://adfe2eproject.dfs.core.windows.net/"
-		},
-		"LS_CSV_PL4_1_AZURE_SQL_DB_properties_typeProperties_server": {
-			"type": "string",
-			"defaultValue": "sql-server-e2e-project.database.windows.net"
-		},
-		"LS_CSV_PL4_1_AZURE_SQL_DB_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "sql_server_DB_Isma"
-		},
-		"LS_CSV_PL4_1_AZURE_SQL_DB_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "sql_server_isma"
-		},
-		"LS_ADLS_CSV_CLOUD_RAW_01_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://accountforoutput01.dfs.core.windows.net/"
-		},
-		"LS_ADLS_CPY_EXCL_INPUT_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://adfe2eproject.dfs.core.windows.net/"
-		},
-		"LS_OUTPUT_EXCL_TO_PRQT_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://accountforoutput01.dfs.core.windows.net/"
-		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -241,6 +241,15 @@
 					"ADLSG2_SFTP_DATA_accountKey": {
 						"value": "[parameters('ADLSG2_SFTP_DATA_accountKey')]"
 					},
+					"LS_ADLS_CPY_EXCL_INPUT_accountKey": {
+						"value": "[parameters('LS_ADLS_CPY_EXCL_INPUT_accountKey')]"
+					},
+					"LS_ADLS_CSV_CLOUD_RAW_01_accountKey": {
+						"value": "[parameters('LS_ADLS_CSV_CLOUD_RAW_01_accountKey')]"
+					},
+					"LS_ADLS_G2_CSV_CLOUD_RAW_01_accountKey": {
+						"value": "[parameters('LS_ADLS_G2_CSV_CLOUD_RAW_01_accountKey')]"
+					},
 					"LS_AZURE_SQL_METADATA_password": {
 						"value": "[parameters('LS_AZURE_SQL_METADATA_password')]"
 					},
@@ -253,11 +262,17 @@
 					"LS_CSV_EXCEL_AzureSqlDatabase_PL4_password": {
 						"value": "[parameters('LS_CSV_EXCEL_AzureSqlDatabase_PL4_password')]"
 					},
+					"LS_CSV_PL4_1_AZURE_SQL_DB_password": {
+						"value": "[parameters('LS_CSV_PL4_1_AZURE_SQL_DB_password')]"
+					},
 					"LS_JSON_AzureDataLakeStorage_accountKey": {
 						"value": "[parameters('LS_JSON_AzureDataLakeStorage_accountKey')]"
 					},
 					"LS_OUTPUT_CSV_TO_PRQT_accountKey": {
 						"value": "[parameters('LS_OUTPUT_CSV_TO_PRQT_accountKey')]"
+					},
+					"LS_OUTPUT_EXCL_TO_PRQT_accountKey": {
+						"value": "[parameters('LS_OUTPUT_EXCL_TO_PRQT_accountKey')]"
 					},
 					"LS_OUTPUT_JSON_PRQT_accountKey": {
 						"value": "[parameters('LS_OUTPUT_JSON_PRQT_accountKey')]"
@@ -274,20 +289,17 @@
 					"SQL_OUTPUT_PARQUET_accountKey": {
 						"value": "[parameters('SQL_OUTPUT_PARQUET_accountKey')]"
 					},
-					"LS_ADLS_G2_CSV_CLOUD_RAW_01_accountKey": {
-						"value": "[parameters('LS_ADLS_G2_CSV_CLOUD_RAW_01_accountKey')]"
-					},
-					"LS_CSV_PL4_1_AZURE_SQL_DB_password": {
-						"value": "[parameters('LS_CSV_PL4_1_AZURE_SQL_DB_password')]"
-					},
-					"LS_ADLS_CSV_CLOUD_RAW_01_accountKey": {
-						"value": "[parameters('LS_ADLS_CSV_CLOUD_RAW_01_accountKey')]"
-					},
-					"LS_ADLS_CPY_EXCL_INPUT_accountKey": {
-						"value": "[parameters('LS_ADLS_CPY_EXCL_INPUT_accountKey')]"
-					},
 					"ADLSG2_SFTP_DATA_properties_typeProperties_url": {
 						"value": "[parameters('ADLSG2_SFTP_DATA_properties_typeProperties_url')]"
+					},
+					"LS_ADLS_CPY_EXCL_INPUT_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLS_CPY_EXCL_INPUT_properties_typeProperties_url')]"
+					},
+					"LS_ADLS_CSV_CLOUD_RAW_01_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLS_CSV_CLOUD_RAW_01_properties_typeProperties_url')]"
+					},
+					"LS_ADLS_G2_CSV_CLOUD_RAW_01_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLS_G2_CSV_CLOUD_RAW_01_properties_typeProperties_url')]"
 					},
 					"LS_AZURE_SQL_METADATA_properties_typeProperties_server": {
 						"value": "[parameters('LS_AZURE_SQL_METADATA_properties_typeProperties_server')]"
@@ -331,11 +343,23 @@
 					"LS_CSV_EXCEL_AzureSqlDatabase_PL4_properties_typeProperties_userName": {
 						"value": "[parameters('LS_CSV_EXCEL_AzureSqlDatabase_PL4_properties_typeProperties_userName')]"
 					},
+					"LS_CSV_PL4_1_AZURE_SQL_DB_properties_typeProperties_server": {
+						"value": "[parameters('LS_CSV_PL4_1_AZURE_SQL_DB_properties_typeProperties_server')]"
+					},
+					"LS_CSV_PL4_1_AZURE_SQL_DB_properties_typeProperties_database": {
+						"value": "[parameters('LS_CSV_PL4_1_AZURE_SQL_DB_properties_typeProperties_database')]"
+					},
+					"LS_CSV_PL4_1_AZURE_SQL_DB_properties_typeProperties_userName": {
+						"value": "[parameters('LS_CSV_PL4_1_AZURE_SQL_DB_properties_typeProperties_userName')]"
+					},
 					"LS_JSON_AzureDataLakeStorage_properties_typeProperties_url": {
 						"value": "[parameters('LS_JSON_AzureDataLakeStorage_properties_typeProperties_url')]"
 					},
 					"LS_OUTPUT_CSV_TO_PRQT_properties_typeProperties_url": {
 						"value": "[parameters('LS_OUTPUT_CSV_TO_PRQT_properties_typeProperties_url')]"
+					},
+					"LS_OUTPUT_EXCL_TO_PRQT_properties_typeProperties_url": {
+						"value": "[parameters('LS_OUTPUT_EXCL_TO_PRQT_properties_typeProperties_url')]"
 					},
 					"LS_OUTPUT_JSON_PRQT_properties_typeProperties_url": {
 						"value": "[parameters('LS_OUTPUT_JSON_PRQT_properties_typeProperties_url')]"
@@ -354,24 +378,6 @@
 					},
 					"SQL_OUTPUT_PARQUET_properties_typeProperties_url": {
 						"value": "[parameters('SQL_OUTPUT_PARQUET_properties_typeProperties_url')]"
-					},
-					"LS_ADLS_G2_CSV_CLOUD_RAW_01_properties_typeProperties_url": {
-						"value": "[parameters('LS_ADLS_G2_CSV_CLOUD_RAW_01_properties_typeProperties_url')]"
-					},
-					"LS_CSV_PL4_1_AZURE_SQL_DB_properties_typeProperties_server": {
-						"value": "[parameters('LS_CSV_PL4_1_AZURE_SQL_DB_properties_typeProperties_server')]"
-					},
-					"LS_CSV_PL4_1_AZURE_SQL_DB_properties_typeProperties_database": {
-						"value": "[parameters('LS_CSV_PL4_1_AZURE_SQL_DB_properties_typeProperties_database')]"
-					},
-					"LS_CSV_PL4_1_AZURE_SQL_DB_properties_typeProperties_userName": {
-						"value": "[parameters('LS_CSV_PL4_1_AZURE_SQL_DB_properties_typeProperties_userName')]"
-					},
-					"LS_ADLS_CSV_CLOUD_RAW_01_properties_typeProperties_url": {
-						"value": "[parameters('LS_ADLS_CSV_CLOUD_RAW_01_properties_typeProperties_url')]"
-					},
-					"LS_ADLS_CPY_EXCL_INPUT_properties_typeProperties_url": {
-						"value": "[parameters('LS_ADLS_CPY_EXCL_INPUT_properties_typeProperties_url')]"
 					}
 				}
 			},
@@ -391,14 +397,8 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"LS_OUTPUT_EXCL_TO_PRQT_accountKey": {
-						"value": "[parameters('LS_OUTPUT_EXCL_TO_PRQT_accountKey')]"
-					},
 					"LS_SQL_SERVER_INPUT_password": {
 						"value": "[parameters('LS_SQL_SERVER_INPUT_password')]"
-					},
-					"LS_OUTPUT_EXCL_TO_PRQT_properties_typeProperties_url": {
-						"value": "[parameters('LS_OUTPUT_EXCL_TO_PRQT_properties_typeProperties_url')]"
 					},
 					"LS_SQL_SERVER_INPUT_properties_typeProperties_server": {
 						"value": "[parameters('LS_SQL_SERVER_INPUT_properties_typeProperties_server')]"

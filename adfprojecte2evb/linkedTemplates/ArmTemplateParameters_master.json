@@ -8,6 +8,15 @@
 		"ADLSG2_SFTP_DATA_accountKey": {
 			"value": ""
 		},
+		"LS_ADLS_CPY_EXCL_INPUT_accountKey": {
+			"value": ""
+		},
+		"LS_ADLS_CSV_CLOUD_RAW_01_accountKey": {
+			"value": ""
+		},
+		"LS_ADLS_G2_CSV_CLOUD_RAW_01_accountKey": {
+			"value": ""
+		},
 		"LS_AZURE_SQL_METADATA_password": {
 			"value": ""
 		},
@@ -20,10 +29,16 @@
 		"LS_CSV_EXCEL_AzureSqlDatabase_PL4_password": {
 			"value": ""
 		},
+		"LS_CSV_PL4_1_AZURE_SQL_DB_password": {
+			"value": ""
+		},
 		"LS_JSON_AzureDataLakeStorage_accountKey": {
 			"value": ""
 		},
 		"LS_OUTPUT_CSV_TO_PRQT_accountKey": {
+			"value": ""
+		},
+		"LS_OUTPUT_EXCL_TO_PRQT_accountKey": {
 			"value": ""
 		},
 		"LS_OUTPUT_JSON_PRQT_accountKey": {
@@ -44,22 +59,16 @@
 		"SQL_OUTPUT_PARQUET_accountKey": {
 			"value": ""
 		},
-		"LS_ADLS_G2_CSV_CLOUD_RAW_01_accountKey": {
-			"value": ""
-		},
-		"LS_CSV_PL4_1_AZURE_SQL_DB_password": {
-			"value": ""
-		},
-		"LS_ADLS_CSV_CLOUD_RAW_01_accountKey": {
-			"value": ""
-		},
-		"LS_ADLS_CPY_EXCL_INPUT_accountKey": {
-			"value": ""
-		},
-		"LS_OUTPUT_EXCL_TO_PRQT_accountKey": {
-			"value": ""
-		},
 		"ADLSG2_SFTP_DATA_properties_typeProperties_url": {
+			"value": "https://adfe2eproject.dfs.core.windows.net/"
+		},
+		"LS_ADLS_CPY_EXCL_INPUT_properties_typeProperties_url": {
+			"value": "https://adfe2eproject.dfs.core.windows.net/"
+		},
+		"LS_ADLS_CSV_CLOUD_RAW_01_properties_typeProperties_url": {
+			"value": "https://accountforoutput01.dfs.core.windows.net/"
+		},
+		"LS_ADLS_G2_CSV_CLOUD_RAW_01_properties_typeProperties_url": {
 			"value": "https://adfe2eproject.dfs.core.windows.net/"
 		},
 		"LS_AZURE_SQL_METADATA_properties_typeProperties_server": {
@@ -104,10 +113,22 @@
 		"LS_CSV_EXCEL_AzureSqlDatabase_PL4_properties_typeProperties_userName": {
 			"value": "sql_server_isma"
 		},
+		"LS_CSV_PL4_1_AZURE_SQL_DB_properties_typeProperties_server": {
+			"value": "sql-server-e2e-project.database.windows.net"
+		},
+		"LS_CSV_PL4_1_AZURE_SQL_DB_properties_typeProperties_database": {
+			"value": "sql_server_DB_Isma"
+		},
+		"LS_CSV_PL4_1_AZURE_SQL_DB_properties_typeProperties_userName": {
+			"value": "sql_server_isma"
+		},
 		"LS_JSON_AzureDataLakeStorage_properties_typeProperties_url": {
 			"value": "https://adfe2eproject.dfs.core.windows.net/"
 		},
 		"LS_OUTPUT_CSV_TO_PRQT_properties_typeProperties_url": {
+			"value": "https://accountforoutput01.dfs.core.windows.net/"
+		},
+		"LS_OUTPUT_EXCL_TO_PRQT_properties_typeProperties_url": {
 			"value": "https://accountforoutput01.dfs.core.windows.net/"
 		},
 		"LS_OUTPUT_JSON_PRQT_properties_typeProperties_url": {
@@ -135,27 +156,6 @@
 			"value": "https://retoolapi.dev/iXyaxb/data"
 		},
 		"SQL_OUTPUT_PARQUET_properties_typeProperties_url": {
-			"value": "https://accountforoutput01.dfs.core.windows.net/"
-		},
-		"LS_ADLS_G2_CSV_CLOUD_RAW_01_properties_typeProperties_url": {
-			"value": "https://adfe2eproject.dfs.core.windows.net/"
-		},
-		"LS_CSV_PL4_1_AZURE_SQL_DB_properties_typeProperties_server": {
-			"value": "sql-server-e2e-project.database.windows.net"
-		},
-		"LS_CSV_PL4_1_AZURE_SQL_DB_properties_typeProperties_database": {
-			"value": "sql_server_DB_Isma"
-		},
-		"LS_CSV_PL4_1_AZURE_SQL_DB_properties_typeProperties_userName": {
-			"value": "sql_server_isma"
-		},
-		"LS_ADLS_CSV_CLOUD_RAW_01_properties_typeProperties_url": {
-			"value": "https://accountforoutput01.dfs.core.windows.net/"
-		},
-		"LS_ADLS_CPY_EXCL_INPUT_properties_typeProperties_url": {
-			"value": "https://adfe2eproject.dfs.core.windows.net/"
-		},
-		"LS_OUTPUT_EXCL_TO_PRQT_properties_typeProperties_url": {
 			"value": "https://accountforoutput01.dfs.core.windows.net/"
 		},
 		"containerUri": {
