@@ -27,7 +27,8 @@
 					"dataset": {
 						"referenceName": "DS_AZURE_SQL_METADATA",
 						"type": "DatasetReference"
-					}
+					},
+					"firstRowOnly": true
 				}
 			},
 			{
@@ -44,7 +45,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"on": {
-						"value": "@activity('LKUP_GET_FILE_TYPES_CSV_EXCEL').output.firstRow.\n    L4_switch_type",
+						"value": "@activity('LKUP_GET_FILE_TYPES_CSV_EXCEL').output.firstRow.L4_switch_type",
 						"type": "Expression"
 					},
 					"cases": [
