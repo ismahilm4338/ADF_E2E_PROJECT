@@ -10,7 +10,7 @@
 		"schema": [],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "vb_tbl_job"
+			"table": "vb_tbl_trigger"
 		}
 	}
 }
